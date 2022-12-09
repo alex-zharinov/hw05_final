@@ -199,6 +199,11 @@ class TestView(TestCase):
             reverse('posts:index')
         ).content
         self.assertEqual(actual_page, cached_page)
+        cache.clear()
+        cleared_page = self.authorized_client.get(
+            reverse('posts:index')
+        ).content
+        self.assertNotEqual(actual_page, cleared_page)
 
     def test_follow(self):
         user = User.objects.create_user(username='username')
@@ -236,11 +241,7 @@ class TestView(TestCase):
         response = self.authorized_client.get(
             reverse('posts:follow_index')
         )
-        response_none = authorized_client.get(
-            reverse('posts:follow_index')
-        )
         actual_count = len(response.context['page_obj'])
-        actual_count_none = len(response_none.context['page_obj'])
         Post.objects.create(
             text='Text',
             author=user,
@@ -248,12 +249,29 @@ class TestView(TestCase):
         response = self.authorized_client.get(
             reverse('posts:follow_index')
         )
-        response_none = authorized_client.get(
-            reverse('posts:follow_index')
-        )
         new_count = len(response.context['page_obj'])
-        new_count_none = len(response_none.context['page_obj'])
         self.assertTrue(
             new_count == actual_count + 1
         )
-        self.assertEqual(actual_count_none, new_count_none)
+
+    def test_new_post_not_followers(self):
+        user = User.objects.create_user(username='username')
+        authorized_client = Client()
+        authorized_client.force_login(user)
+        Follow.objects.create(
+            user=self.user,
+            author=user
+        )
+        response = authorized_client.get(
+            reverse('posts:follow_index')
+        )
+        actual_count = len(response.context['page_obj'])
+        Post.objects.create(
+            text='Text',
+            author=user,
+        )
+        response = authorized_client.get(
+            reverse('posts:follow_index')
+        )
+        new_count = len(response.context['page_obj'])
+        self.assertEqual(actual_count, new_count)
