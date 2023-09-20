@@ -1,7 +1,7 @@
-from django.test import TestCase, Client
 from http import HTTPStatus
-from django.core.cache import cache
 
+from django.core.cache import cache
+from django.test import Client, TestCase
 from posts.models import Group, Post, User
 
 

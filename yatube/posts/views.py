@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from posts.models import Post, Group, User, Comment, Follow
-from posts.forms import PostForm, CommentForm
-from posts.utils import paginator
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.cache import cache_page
+from posts.forms import CommentForm, PostForm
+from posts.models import Comment, Follow, Group, Post, User
+from posts.utils import paginator
 
 N_POST = 10
 CACHE_TIME = 20

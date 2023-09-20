@@ -1,15 +1,13 @@
 import shutil
 import tempfile
 
-from django.test import TestCase, Client, override_settings
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.urls import reverse
 from django import forms
 from django.conf import settings
 from django.core.cache import cache
-
-from posts.models import Group, Post, User, Follow
-
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import Client, TestCase, override_settings
+from django.urls import reverse
+from posts.models import Follow, Group, Post, User
 
 TEST_POST_ON_PAGE = 12
 TEMP_MEDIA_ROOT = tempfile.mkdtemp(dir=settings.BASE_DIR)
