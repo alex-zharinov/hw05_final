@@ -25,7 +25,7 @@ jobs:
 
     - name: Test with django tests
       run: |
-        python manage.py test yatube/
+        python yatube/manage.py test yatube/
 
     - name: Test with django tests
       run: |
