@@ -60,7 +60,7 @@ pip install -r requirements.txt
 ```
 #  ./.env
 
-SECRET_KEY=#c+qu7%(2$5&p6%mv1b)z@x0cwh3x%0k_4&)kj$=s_9%8gm^!6
+SECRET_KEY=SUP3R-S3CR3T-K3Y-F0R-MY-PR0J3CT
 ```
 
 Создать БД:
