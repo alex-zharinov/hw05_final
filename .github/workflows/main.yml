@@ -24,8 +24,6 @@ jobs:
         python -m flake8
 
     - name: Test with django tests
-      env:
-        SECRET_KEY: $ {{ secrets.SECRET_KEY }}
       run: |
         python yatube/manage.py test yatube/
 
