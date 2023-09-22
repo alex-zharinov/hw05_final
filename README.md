@@ -1,8 +1,8 @@
-# Yatube
+# Social Network of Publications
 
-[![Django-app workflow](https://github.com/alex-zharinov/hw05_final/actions/workflows/main.yml/badge.svg)](https://github.com/alex-zharinov/hw05_final/actions/workflows/main.yml)
+[![Django-app workflow](https://github.com/alex-zharinov/sn_of_pub/actions/workflows/main.yml/badge.svg)](https://github.com/alex-zharinov/sn_of_pub/actions/workflows/main.yml)
 
-## Cоциальная сеть «Блогикум» с авторизацией и комментариями
+## Cоциальная сеть публикаций с авторизацией и комментариями
 > Cоциальная сеть даёт пользователям возможность создать учетную запись, публиковать записи, подписываться на любимых авторов и отмечать понравившиеся записи.
 
 ## Технологии проекта:
@@ -17,10 +17,10 @@
 ### Как запустить проект:
 Клонировать репозиторий и перейти в него в командной строке:
 ```
-git clone https://github.com/alex-zharinov/hw05_final.git
+git clone https://github.com/alex-zharinov/sn_of_pub.git
 ```
 ```
-cd hw05_final
+cd sn_of_pub
 ```
 Cоздать и активировать виртуальное окружение:
 ```
